@@ -1,0 +1,69 @@
+<div class="cart-container">
+  <div *ngIf="loading">
+    <nz-table [nzData]="[]" [nzBordered]="true" [nzSize]="'middle'">
+      <thead>
+        <tr>
+          <th *ngFor="let header of ['Name', 'Price', 'Quantity', 'Subtotal', 'Actions']">
+            <nz-skeleton [nzActive]="true" [nzTitle]="true" [nzAvatar]="false" [nzParagraph]="false"></nz-skeleton>
+          </th>
+        </tr>
+      </thead>
+    </nz-table>
+
+    <table class="skeleton-table">
+      <tbody>
+        <tr *ngFor="let _ of skeletonRows">
+          <td *ngFor="let _ of [1, 2, 3, 4, 5]">
+            <nz-skeleton [nzActive]="true" [nzTitle]="false" [nzParagraph]="{ rows: 1, width: '100%' }"></nz-skeleton>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-container">
+    <nz-table *ngIf="!loading && cart.length > 0" #cartTable [nzData]="cart" [nzBordered]="true" [nzSize]="'middle'"
+      [nzScroll]="{ x: 'max-content' }">
+      <thead>
+        <tr>
+          <th class="theader">Name</th>
+          <th class="theader">Price</th>
+          <th class="theader">Quantity</th>
+          <th class="theader">Subtotal</th>
+          <th class="theader">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart">
+          <td>{{ item.name }}</td>
+          <td>{{ item.price | currency }}</td>
+          <td>
+            <nz-input-number [(ngModel)]="item.quantity" [nzMin]="1" [nzMax]="99" [nzStep]="1"
+              (ngModelChange)="updateQuantity(item.productId, $event)"></nz-input-number>
+          </td>
+          <td>{{ item.price * item.quantity | currency }}</td>
+          <td>
+            <button nz-button nzType="default" nzDanger (click)="removeFromCart(item.productId)">
+              <i nz-icon nzType="delete"></i>
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="cart-summary" *ngIf="!loading && cart.length > 0">
+    <h3>Total: {{ totalPrice | currency }}</h3>
+    <button nz-button nzType="primary" nzDanger (click)="clearCart()">Clear Cart</button>
+  </div>
+
+  <div *ngIf="loading" class="skeleton-summary">
+    <nz-skeleton [nzActive]="true" [nzTitle]="true" [nzParagraph]="{ rows: 1, width: ['50%'] }"></nz-skeleton>
+  </div>
+
+  <div *ngIf="cart.length === 0 && !loading" class="empty-cart">
+    <i nz-icon nzType="shopping-cart" nzTheme="outline" style="font-size: 48px;"></i>
+    <h3>Your cart is empty</h3>
+  </div>
+</div>

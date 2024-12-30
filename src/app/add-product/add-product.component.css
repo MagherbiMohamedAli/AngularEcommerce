@@ -1,0 +1,7 @@
+.nz-modal {
+  transition: opacity 0.3s ease-in-out;
+}
+
+nz-select {
+  min-width: 100%;
+}

@@ -1,0 +1,39 @@
+<div class="search-container" style="margin-bottom: 16px;">
+  <nz-input-group [nzSuffix]="suffixIcon">
+    <input type="text" nz-input placeholder="Search by name or category" [(ngModel)]="searchText"
+      (ngModelChange)="search()" />
+  </nz-input-group>
+  <ng-template #suffixIcon>
+    <span nz-icon nzType="search"></span>
+  </ng-template>
+</div>
+
+<div class="table-container">
+  <nz-table #basicTable [nzData]="filteredProducts" [nzBordered]="true" [nzSize]="'middle'"
+    [nzScroll]="{ x: 'max-content' }" (nzQueryParams)="onQueryParamsChange($event)">
+    <thead>
+      <tr>
+        <th nzColumnKey="name" [nzWidth]="'25%'" class="theader">Name</th>
+        <th nzColumnKey="price" [nzWidth]="'15%'" [nzSortFn]="true" class="theader">Price</th>
+        <th nzColumnKey="category" [nzWidth]="'20%'" class="theader">Category</th>
+        <th [nzWidth]="'20%'" class="theader">Availability</th>
+        <th [nzWidth]="'20%'" class="theader"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filteredProducts" [appSaleHighlight]="product.onSale">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.availability ? 'In Stock' : 'Out of Stock' }}</td>
+        <td><button nz-button nzType="primary" (click)="addToCart(product)">Add to Cart</button></td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+<div class="button-container">
+  <app-add-product (productAdded)="onProductAdded($event)"></app-add-product>
+  <button nz-button nzType="primary" nzGhost routerLink="/cart"> <i nz-icon nzType="shopping-cart"
+      class="cart-icon"></i>
+    Go to Cart</button>
+</div>

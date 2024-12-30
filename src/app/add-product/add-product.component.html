@@ -1,0 +1,87 @@
+<button nz-button nzType="primary" (click)="showModal()">Add Product</button>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add Product" (nzOnCancel)="handleCancel()" (nzOnOk)="handleSubmit()"
+    [nzOkDisabled]="!productForm.valid" [nzContent]="modalContent">
+</nz-modal>
+
+<ng-template #modalContent>
+    <form [formGroup]="productForm">
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSpan]="6">
+                <label for="productName">Name</label>
+            </div>
+            <div nz-form-control nz-col [nzSpan]="14">
+                <input nz-input id="productName" formControlName="name" placeholder="Enter product name" />
+                <nz-form-explain *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched"
+                    style="color: red;">
+                    *Product Name is required
+                </nz-form-explain>
+            </div>
+        </div>
+
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSpan]="6">
+                <label for="price">Price</label>
+            </div>
+            <div nz-form-control nz-col [nzSpan]="14">
+                <input nz-input id="price" formControlName="price" placeholder="Enter price" type="number" />
+                <nz-form-explain *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched"
+                    style="color: red;">
+                    *Price is required and must be a number
+                </nz-form-explain>
+            </div>
+        </div>
+
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSpan]="6">
+                <label for="category">Category</label>
+            </div>
+            <div nz-form-control nz-col [nzSpan]="14">
+                <nz-select id="category" formControlName="category" nzPlaceHolder="--Select category--">
+                    <nz-option *ngFor="let category of categories" [nzValue]="category"
+                        [nzLabel]="category"></nz-option>
+                </nz-select>
+            </div>
+        </div>
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSpan]="6">
+                <label for="description">Description</label>
+            </div>
+            <div nz-form-control nz-col [nzSpan]="14">
+                <textarea nz-input id="description" formControlName="description" rows="3"
+                    placeholder="Enter description (optional)"></textarea>
+            </div>
+        </div>
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSpan]="6">
+                <label for="availability">Availability</label>
+            </div>
+            <div nz-form-control nz-col [nzSpan]="14">
+                <nz-switch formControlName="availability"></nz-switch>
+            </div>
+        </div>
+        <div nz-form-item nz-row>
+            <div nz-form-label nz-col [nzSpan]="6">
+                <label for="sale">On Sale</label>
+            </div>
+            <div nz-form-control nz-col [nzSpan]="14">
+                <nz-switch formControlName="onSale" (ngModelChange)="onSaleChanged($event)"></nz-switch>
+            </div>
+        </div>
+        <div nz-form-item nz-row *ngIf="productForm.get('onSale')?.value && productForm.get('availability')?.value">
+            <div nz-form-label nz-col [nzSpan]="6">
+                <label for="salePercentage">Sale Percentage</label>
+            </div>
+            <div nz-form-control nz-col [nzSpan]="14">
+                <input nz-input id="salePercentage" formControlName="salePercentage" placeholder="Enter sale percentage"
+                    type="number" min="1" max="100" />
+                <nz-form-explain
+                    *ngIf="productForm.get('salePercentage')?.invalid && productForm.get('salePercentage')?.touched">
+                    Sale Percentage must be between 1 and 100
+                </nz-form-explain>
+            </div>
+        </div>
+
+
+    </form>
+</ng-template>

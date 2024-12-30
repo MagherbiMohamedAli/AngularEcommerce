@@ -1,0 +1,9 @@
+<div class="navbar">
+    <h1 routerLink="/home">E-Commerce Dashboard</h1>
+    <nz-badge [nzCount]="cartItemCount" [nzOverflowCount]="99" class="cart-badge" routerLink="/cart">
+    </nz-badge>
+    <div class="cart-container">
+        <i nz-icon nzType="shopping-cart" class="cart-icon" routerLink="/cart"></i>
+        <span routerLink="/cart">{{ cartTotalPrice | currency }}</span>
+    </div>
+</div>

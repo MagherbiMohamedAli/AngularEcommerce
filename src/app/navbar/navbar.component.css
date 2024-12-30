@@ -1,0 +1,212 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: #001529;
+  color: white;
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+h1 {
+  padding-top: 1%;
+  color: white;
+}
+
+.cart-badge {
+  padding-left: 70%;
+
+}
+
+.cart-icon {
+  font-size: 20px;
+}
+
+span {
+  font-size: 15px;
+
+}
+
+@media (max-width: 1290px) {
+  .navbar {
+    padding: 8px 12px;
+    height: 50px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .cart-badge {
+    padding-left: 75%;
+
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 15px;
+
+  }
+}
+
+@media (max-width: 1030px) {
+  .navbar {
+    padding: 8px 12px;
+    height: 50px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .cart-badge {
+    padding-left: 69%;
+
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 15px;
+
+  }
+}
+
+@media (max-width: 920px) {
+  .navbar {
+    padding: 8px 12px;
+    height: 50px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .cart-badge {
+    padding-left: 65%;
+
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 15px;
+
+  }
+}
+
+
+
+@media (max-width: 860px) {
+  .navbar {
+    padding: 8px 8px;
+    height: 40px;
+
+  }
+
+  h1 {
+    font-size: 8px;
+  }
+
+  .cart-badge {
+    padding-left: 73%;
+
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 15px;
+
+  }
+}
+
+@media (max-width: 550px) {
+  .navbar {
+    padding: 8px 8px;
+    height: 40px;
+
+  }
+
+  h1 {
+    font-size: 8px;
+  }
+
+  .cart-badge {
+    padding-left: 45%;
+
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 15px;
+
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 8px 8px;
+    height: 40px;
+
+  }
+
+  h1 {
+    font-size: 8px;
+  }
+
+  .cart-badge {
+    padding-left: 40%;
+
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 15px;
+
+  }
+}
+
+@media (max-width: 370px) {
+  .navbar {
+    padding: 8px 8px;
+    height: 40px;
+
+  }
+
+  h1 {
+    font-size: 8px;
+  }
+
+  .cart-badge {
+    padding-left: 30%;
+
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 15px;
+
+  }
+}

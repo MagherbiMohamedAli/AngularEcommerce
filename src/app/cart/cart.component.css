@@ -1,0 +1,47 @@
+.skeleton-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.skeleton-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.skeleton-summary {
+  margin-top: 16px;
+}
+
+.empty-cart {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding-bottom: 2%;
+  padding-right: 4%;
+}
+
+::ng-deep .ant-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+td {
+  text-align: center;
+}
+
+.theader {
+  text-align: center;
+}
+
+nz-table {
+  padding-top: 2%;
+}

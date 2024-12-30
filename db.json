@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop",
+      "price": 1500,
+      "category": "Electronics",
+      "availability": true,
+      "onSale": false
+    },
+    {
+      "id": "2",
+      "name": "Shoes",
+      "price": 100,
+      "category": "Fashion",
+      "availability": true,
+      "onSale": false
+    },
+    {
+      "id": "d685",
+      "name": "Who moved my cheese",
+      "price": 10,
+      "category": "Books",
+      "description": "Psychology book",
+      "availability": false,
+      "onSale": false
+    }
+  ],
+  "cart": []
+}
